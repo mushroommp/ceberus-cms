@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://MP:mp123456@ceberus-project.ijkjn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "myJWTSecret"
+}
