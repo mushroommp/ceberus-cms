@@ -48,7 +48,8 @@ router.post('/login', async (req, res) => {
                             user: {
                                 id: user.id,
                                 username: user.name,
-                                email: user.email
+                                email: user.email,
+                                hederaAccountId: user.hederaAccountId
                             }
                         })
                     }

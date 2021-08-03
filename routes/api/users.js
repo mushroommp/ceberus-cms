@@ -22,6 +22,11 @@ const Users = require('../../models/User');
  * @desc    Get all users
  * @access  Public
 */
+const operatorId = config.get("hederaAccountId")
+const operatorKey = config.get("hederaPrivateKey")
+
+const client = Client.forTestnet();
+client.setOperator(operatorId, operatorKey);
 
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
@@ -38,19 +43,12 @@ router.post('/register', async (req, res) => {
                 return res.status(400).json({ msg: 'User already exists' });
             }
 
-            const operatorId = config.get("hederaAccountId")
-            const operatorKey = config.get("hederaPrivateKey")
-
-            const client = Client.forTestnet();
-
-            client.setOperator(operatorId, operatorKey);
-
             const newUserPrivateKey = PrivateKey.generate();
             const newUserPublicKey = newUserPrivateKey.publicKey;
 
             const transaction = await new AccountCreateTransaction()
                 .setKey(newUserPrivateKey.publicKey)
-                .setInitialBalance(new Hbar(0)) // 10 h
+                .setInitialBalance(new Hbar(5)) // 10 h
 
             //Get transaction response
             const txResponse = await transaction.execute(client);
@@ -105,5 +103,23 @@ router.post('/register', async (req, res) => {
             })
         })
 });
+
+router.get('/token-balance', async (req,res) => {
+    const { hederaId } = req.query
+
+    try {
+        const accountBalance = await new AccountBalanceQuery()
+            .setAccountId(hederaId)
+            .execute(client);
+
+        if(accountBalance){
+            return res.status(200).json({ account_balance: accountBalance })
+        }
+
+    }catch(e){
+        return res.status(400).json({ message: 'Something went wrong somewhere' })
+    }
+    
+})
 
 module.exports = router;
