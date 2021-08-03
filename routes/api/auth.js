@@ -12,7 +12,7 @@ const Users = require('../../models/User');
  * @access  Public
 */
 
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     
     // Simple validation
@@ -24,14 +24,14 @@ router.post('/', async (req, res) => {
     Users.findOne({ email })
         .then(user => {
             if(!user){
-                return res.status(400).json({ msg: 'User does not exist' });
+                return res.status(400).json({ message: 'User does not exist' });
             }
 
             // Validate password
             bcrypt.compare(password, user.password)
             .then(isMatch => {
                 if(!isMatch){
-                    return res.status(400).json({ msg: 'Invalid credentials' })
+                    return res.status(400).json({ message: 'Invalid credentials' })
                 }
 
                 jwt.sign(

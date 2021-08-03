@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://MP:mp123456@ceberus-project.ijkjn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtSecret": "myJWTSecret"
+    "jwtSecret": "myJWTSecret",
+    "hederaAccountId": "0.0.2143908",
+    "hederaPrivateKey": "302e020100300506032b657004220420e4403efd075e47d0f44a3213a912b21c502d882c9bb0dad664461432e8f52a07"
 }
