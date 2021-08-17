@@ -122,4 +122,15 @@ router.get('/token-balance', async (req,res) => {
     
 })
 
+router.get('/all', async (req,res) => {
+    try {
+        const users = await Users.find();
+        if (!users) throw Error('No Users');
+    
+        res.status(200).json(users);
+    } catch (e) {
+        res.status(400).json({ msg: e.message });
+    }
+})
+
 module.exports = router;
