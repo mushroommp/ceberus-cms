@@ -26,7 +26,7 @@ import TableList from "views/TableList/TableList.js";
 // import Notifications from "@material-ui/icons/Notifications";
 // core components/views for Admin layout
 // import UserProfile from "views/UserProfile/UserProfile.js";
-// import Typography from "views/Typography/Typography.js";
+import Typography from "views/TokenSettings/TokenSettings.js";
 // import Icons from "views/Icons/Icons.js";
 // import Maps from "views/Maps/Maps.js";
 // import NotificationsPage from "views/Notifications/Notifications.js";
@@ -56,14 +56,14 @@ const dashboardRoutes = [
     component: TableList,
     layout: "/admin",
   },
-  // {
-  //   path: "/typography",
-  //   name: "Typography",
-  //   rtlName: "طباعة",
-  //   icon: LibraryBooks,
-  //   component: Typography,
-  //   layout: "/admin",
-  // },
+  {
+    path: "/token-list",
+    name: "Token Settings",
+    rtlName: "طباعة",
+    icon: "post_add",
+    component: Typography,
+    layout: "/admin",
+  },
   // {
   //   path: "/icons",
   //   name: "Icons",

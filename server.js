@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const users = require('./routes/api/users');
 const auth = require('./routes/api/auth');
+const token = require('./routes/api/token');
+const admin = require('./routes/api/admin');
 const config = require('config');
 const cors = require('cors')
 
@@ -25,6 +27,8 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 // Use Routes
 app.use('/api/users', users)
 app.use('/api/auth', auth)
+app.use('/api/token', token)
+app.use('/api/admin', admin)
 
 const port = process.env.PORT || 5000;
 

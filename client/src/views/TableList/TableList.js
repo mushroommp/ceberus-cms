@@ -48,7 +48,7 @@ export default function TableList() {
 
   useEffect(() => {
       getAllUsers()
-  }, [/*Here can enter some value to call again the content inside useEffect*/])
+  }, [])
 
   function getAllUsers(){
       axios.get(`http://localhost:5000/api/users/all`).then((response) => {

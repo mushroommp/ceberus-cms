@@ -2,5 +2,6 @@
     "mongoURI": "mongodb+srv://MP:mp123456@ceberus-project.ijkjn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "jwtSecret": "myJWTSecret",
     "hederaAccountId": "0.0.2143908",
-    "hederaPrivateKey": "302e020100300506032b657004220420e4403efd075e47d0f44a3213a912b21c502d882c9bb0dad664461432e8f52a07"
+    "hederaPrivateKey": "302e020100300506032b657004220420e4403efd075e47d0f44a3213a912b21c502d882c9bb0dad664461432e8f52a07",
+    "hederaPublicKey": "302a300506032b657003210048e7bf7a25a77e971b9287fc29303f830cad91c6d6203aff34e8bc204853ec28"
 }
